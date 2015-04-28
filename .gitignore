@@ -1,0 +1,11 @@
+node-modules
+node_modules
+bower_components
+bower-components
+.sass-cache
+.DS_Store
+*.zip
+*.tar
+*.gz
+*.epub
+

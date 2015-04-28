@@ -1,0 +1,16 @@
+{
+  "author": "Greg Davis <antelope.buzkowski@gmail.com> (http://www.monsterworksdesign.com)",
+  "name": "Vger",
+  "description": "A simple bot for learning commands",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/antelopeb/robby.git"
+  },
+  "main": "server.js",
+  "dependencies": {
+  	"express" : "*",
+      "body-parser" : "*"
+  },
+  "devDependencies": {}
+}
