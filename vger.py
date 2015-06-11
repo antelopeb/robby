@@ -43,8 +43,10 @@ class Vger :
             print "quitting"
         elif ("how are you" in q) or ("how ya doing" in q) or ("how's it hanging" in q) :
             # a simple response to a how are you
-            print "I am fine, thank you."
-            self.askNew()
+            print "I am a computer, and have no feelings. Please enter a command instead of making small talk."
+            askNew()
+	elif ("small talk" in q) :
+		print "It was too small talk. I'm shutting down now."
         elif (isCommand == True) :
             getattr(self.bindings[command], command)(q)
             askNew()
