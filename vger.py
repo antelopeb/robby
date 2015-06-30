@@ -3,21 +3,24 @@ import os
 class Vger :
     # define the new array
     bindings = {}
-    names = []
+    phrases = []
+    files = []
     # initialize Vger
     def _init(self) :
         print "Intializing Vger"
         
         # bring in dependencies, and assign their names
         # to an array on Vger of the defined functions
-        print "Loading the following modules"
+        print "Loading modules"
         files = os.listdir("./bin")
         for file in files:
             if ("__init__" not in file) and (".pyc" not in file) :
                 file = file.replace(".py", "")
                 print file
                 self.bindings[file] = (__import__('bin.'+file, fromlist=["bin"]))
-                self.names.append(file)        
+                for phrase in self.bindings[file].phrase :                    
+                    self.phrases.append(phrase)
+                    self.files.append(file)
         
         print "I am Vger. What can I do for you?"
 
@@ -34,19 +37,17 @@ class Vger :
         # find out if the command is available
         isCommand = False
         
-        for name in self.names :
-            if (name in q) :
+        i = 0
+        for phrase in self.phrases :
+            if (phrase in q) :
                 isCommand = True
-                command = name
+                command = self.files[i]
+            i = i+1
         
         if (q == "quit") or (q == "q") :
             print "quitting"
-        elif ("how are you" in q) or ("how ya doing" in q) or ("how's it hanging" in q) :
-            # a simple response to a how are you
-            print "I am fine, thank you."
-            self.askNew()
         elif (isCommand == True) :
-            getattr(self.bindings[command], command)(q)
+            getattr(self.bindings[command], 'main')(q, prompt)
             askNew()
         else :
             print "I don't understand your command, %s" % q
