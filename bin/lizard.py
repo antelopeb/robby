@@ -1,4 +1,6 @@
-def lizard (q):
+phrase = ["tell me a poem about lizards"]
+
+def main(q,p):
 	print "Don't ever go to Tokyo."
 	print"I just heard on the radio"
 	print"That Ghidora has taken wing" 
