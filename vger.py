@@ -14,7 +14,7 @@ class Vger :
         print "Loading modules"
         files = os.listdir("./bin")
         for file in files:
-            if ("__init__" not in file) and (".pyc" not in file) :
+            if ("__init__" not in file) and (".pyc" not in file) and (".DS_Store" not in file) :
                 file = file.replace(".py", "")
                 print file
                 self.bindings[file] = (__import__('bin.'+file, fromlist=["bin"]))

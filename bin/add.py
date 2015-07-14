@@ -3,7 +3,13 @@ phrase = ["add", "sum"]
 def main(q, prompt):
     qs = q.split(" ")
     numbers = []
-    
+
+    for word in qs :
+        if "+" in word :
+            numbs = word.split("+")
+            for num in numbs :
+                qs.append(num)    
+
     for word in qs :
         word = word.replace(',', "")
         try :
